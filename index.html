@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Grid CSS</title>
+  </head>
+  <body>
+    <div class="grid">
+      <div class="tall-image">1</div>
+      <div class="wide-image">2</div>
+      <div class="card">3</div>
+      <div class="card">4</div>
+      <div class="card">5</div>
+      <div class="tall-image">6</div>
+      <div class="tall-image">7</div>
+      <div class="card">8</div>
+      <div class="card">9</div>
+      <div class="card">10</div>
+      <div class="card">11</div>
+      <div class="card">12</div>
+      <div class="card">13</div>
+      <div class="card">14</div>
+      <div class="card">15</div>
+      <div class="card">16</div>
+      <div class="card">17</div>
+      <div class="card">18</div>
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+        const gridItems = document.querySelectorAll(".grid > div");
+        
+        gridItems.forEach(item => {
+          item.addEventListener("click", () => {
+            const fullscreenElement = document.createElement("div");
+            fullscreenElement.classList.add("fullscreen");
+            
+            const clonedItem = item.cloneNode(true);
+            clonedItem.style.height = "80%";
+            clonedItem.style.width = "80%";
+            fullscreenElement.appendChild(clonedItem);
+            
+            document.body.appendChild(fullscreenElement);
+            
+            setTimeout(() => {
+              fullscreenElement.classList.add("active");
+            }, 10);
+            
+            fullscreenElement.addEventListener("click", () => {
+              fullscreenElement.classList.remove("active");
+              setTimeout(() => {
+                document.body.removeChild(fullscreenElement);
+              }, 300);
+            });
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
+<!-- https://medium.com/@pozterz.jojo/%E0%B8%9D%E0%B8%B6%E0%B8%81%E0%B9%83%E0%B8%8A%E0%B9%89-css-grid-%E0%B8%81%E0%B8%B1%E0%B8%99%E0%B9%80%E0%B8%96%E0%B8%AD%E0%B8%B0-6a18a05036da -->

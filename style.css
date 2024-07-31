@@ -1,0 +1,73 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: black;
+  }
+  
+  .grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-auto-rows: 240px;
+  }
+  
+  .tall-image {
+    display: flex;
+    background-color: slategrey;
+    grid-row: span 2 / auto;
+    font-size: 3rem;
+    /* ใช่ได้กับ flex แกน x*/
+    justify-content: center;
+    /* ใช่ได้กับ flex แกน y*/
+    align-items: center;
+    height: 100%;
+  }
+  
+  
+  .wide-image {
+    background-color: slategrey;
+    grid-column: span 2 / auto;
+    font-size: 3rem;
+    display: flex;
+    /* ใช่ได้กับ flex แกน x*/
+    justify-content: center;
+    /* ใช่ได้กับ flex แกน y*/
+    align-items: center;
+    height: 100%;
+  }
+  
+  .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background-color: slategrey;
+    transition: all 0.3s;
+    cursor: pointer;
+    font-size: 3rem;
+  }
+  
+  .card:hover {
+    box-shadow: rgba(2, 8, 20, 0.1) 0 0.255rem 1.1rem, rgba(2, 8, 20, 0.08) 0 0.255rem 1.1rem;
+    transform: translateY(-5px) scale(1.1);
+  }
+  .fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out;
+    transform: scale(0);
+  }
+  
+  .fullscreen.active {
+    transform: scale(1);
+  }
