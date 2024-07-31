@@ -20,10 +20,21 @@ body {
     justify-content: center;
     /* ใช่ได้กับ flex แกน y*/
     align-items: center;
+    transition: all 0.3s;
     height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; /* ป้องกันการทำซ้ำของรูป */
+  }
+  .tall-image:hover {
+    background-color: black;
+    opacity: 0.5;
+    box-shadow: rgba(2, 8, 20, 0.1) 0 0.255rem 1.1rem, rgba(2, 8, 20, 0.08) 0 0.255rem 1.1rem;
+    transform: opacity(0.3s);
+    color: white;
   }
   
-  
+
   .wide-image {
     background-color: slategrey;
     grid-column: span 2 / auto;
@@ -33,9 +44,16 @@ body {
     justify-content: center;
     /* ใช่ได้กับ flex แกน y*/
     align-items: center;
+    transition: all 0.3s;
     height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; /* ป้องกันการทำซ้ำของรูป */
   }
-  
+  .wide-image:hover {
+    box-shadow: rgba(2, 8, 20, 0.1) 0 0.255rem 1.1rem, rgba(2, 8, 20, 0.08) 0 0.255rem 1.1rem;
+    transform: translateY(-5px) scale(1.1);
+  }
   .card {
     display: flex;
     align-items: center;
@@ -47,12 +65,16 @@ body {
     transition: all 0.3s;
     cursor: pointer;
     font-size: 3rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; /* ป้องกันการทำซ้ำของรูป */
   }
   
   .card:hover {
     box-shadow: rgba(2, 8, 20, 0.1) 0 0.255rem 1.1rem, rgba(2, 8, 20, 0.08) 0 0.255rem 1.1rem;
     transform: translateY(-5px) scale(1.1);
   }
+  
   .fullscreen {
     position: fixed;
     top: 0;
@@ -66,8 +88,23 @@ body {
     z-index: 1000;
     transition: transform 0.3s ease-in-out;
     transform: scale(0);
+    background-repeat: no-repeat; /* ป้องกันการทำซ้ำของรูป */
+   
   }
   
   .fullscreen.active {
     transform: scale(1);
+  }
+  
+  span {
+    font-size: 3rem;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .tall-image:hover span,
+  .wide-image:hover span,
+  .card:hover span {
+    opacity: 1 !important;
   }
